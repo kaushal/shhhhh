@@ -1,48 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Find my Whisper</title>
-    <link rel="stylesheet" href="css/style.css">
-    <!--[if IE]>
+    <head>
+        <meta charset="utf-8">
+        <title>Find my Whisper</title>
+        <link rel="stylesheet" href="css/style.css">
+        <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-</head>
+        <![endif]-->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
 
-<body id="home">
-    <h1>Find my Whisper</h1>
-    <div id="form">
-	    Lat:
-	    <input type="text" name="lat" />
-	    <br />
-	    Lon:
-	    <input type="text" name="lon" />
-	    <br />
-	    <button id="go">Go!</button> 
-	</div>
-	<div id="whispers">
-	</div>
-    <script>
-    	$('document').ready(function()
-    	{
-    		$("#go").click(function()
-    		{
-    			response = triangulate();
-    			$('#form').hide();
-    			$(response).each(function(_, elem)
-    			{
-    				newEl = '<div class="whisper"><img src="' + elem["url"] + '" height="300px" alt="" /><img src="' + elem["mapsUrl"] + '" alt="" /></div>';
-    				$('#whispers').append(newEl);
-    			});
-    		});
-    	});
+    <body id="home">
+        <h1>Find my Whisper</h1>
+        <div id="form">
+            Lat:
+            <input type="text" name="lat" />
+            <br />
+            Lon:
+            <input type="text" name="lon" />
+            <br />
+            <button id="go">Go!</button> 
+        </div>
+        <div id="whispers">
+        </div>
+        <script>
+            $('document').ready(function()
+            {
+                $("#go").click(function()
+                {
+                    response = triangulate();
+                    $('#form').hide();
+                    $(response).each(function(_, elem)
+                    {
+                        newEl = '<div class="whisper"><img src="' + elem["url"] + '" height="300px" alt="" /><img src="' + elem["mapsUrl"] + '" alt="" /></div>';
+                        $('#whispers').append(newEl);
+                        });
+                        });
+                        });
 
-    	function triangulate(x, y)
-    	{
-    		var returnObject = [{url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}]
-    		return returnObject;
-    	}
-    </script>
-</body>
-</html>
+                        function triangulate(x, y)
+                        {
+                            var returnObject = [{url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}, {url: "http://dybodsnvnuqdv.cloudfront.net/04e80bc5be7800721024d15b19db8681ea77d5.jpg", mapsUrl: "https://developers.google.com/maps/documentation/staticmaps/images/s150x2.png"}]
+                            return returnObject;
+                        }
+                    </script>
+                </body>
+            </html>
